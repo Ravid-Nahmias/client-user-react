@@ -1,22 +1,14 @@
 import User from "./User";
-
-const Users = ({
-  users,
-  onDelete,
-  onclickUpdate,
-  showUpdate,
-  setShowUpdate,
-}) => {
+const Users = ({ users, onDelete, updateID, setUpdateID }) => {
   return (
     <>
-      {users.map((user, index) => (
+      {users.map((user) => (
         <User
-          iskey={index}
+          key={user.id}
           user={user}
           onDelete={onDelete}
-          onclickUpdate={onclickUpdate}
-          showUpdate={showUpdate}
-          setShowUpdate={setShowUpdate}
+          updateID={updateID}
+          setUpdateID={setUpdateID}
         ></User>
       ))}
     </>

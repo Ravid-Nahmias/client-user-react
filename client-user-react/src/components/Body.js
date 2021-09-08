@@ -1,20 +1,13 @@
 import Table from "./Table";
 
-const Body = ({
-  users,
-  onDelete,
-  onClickUpdate,
-  showUpdate,
-  setShowUpdate,
-}) => {
+const Body = ({ users, onDelete, updateID, setUpdateID }) => {
   return (
     <div>
       <Table
         users={users}
         onDelete={onDelete}
-        onUpdate={onClickUpdate}
-        showUpdate={showUpdate}
-        setShowUpdate={setShowUpdate}
+        updateID={updateID}
+        setUpdateID={setUpdateID}
       ></Table>
     </div>
   );

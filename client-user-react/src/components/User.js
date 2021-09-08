@@ -1,21 +1,18 @@
 import Button from "./Button";
-import UpdateUser from "./UpdateUser";
-import { useState } from "react";
 
-const User = ({ user, onDelete, onClickUpdate, showUpdate, setShowUpdate }) => {
+const User = ({ user, onDelete, setUpdateID }) => {
   return (
     <tr className="user">
       <td>{user.id}</td>
       <td>{user.name}</td>
       <td>{user.email}</td>
       <Button
+        key={user.id}
         className="btn"
-        text={showUpdate ? "close" : "Update User"}
-        onclick={() => setShowUpdate(!showUpdate)}
+        text={"Update User"}
+        onclick={() => setUpdateID(user.id)}
       ></Button>
-      {showUpdate && (
-        <UpdateUser onClickUpdate={onClickUpdate} user={user}></UpdateUser>
-      )}
+
       <Button onclick={() => onDelete(user.id)} text="Delete User">
         {" "}
       </Button>
