@@ -44,7 +44,37 @@ function App() {
       console.log(error);
     }
   };
-
+  //Update User
+  const updateUser = async (user) => {
+    try {
+      const URL = "http://localhost:3000/user/" + user.id;
+      var userToSend = { name: user.name, email: user.email };
+      const resault = await fetch(URL, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userToSend),
+      });
+      console.log("User updated");
+      const resaultJson = await resault.json();
+      setUsers({ id: resaultJson.id });
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //Delete User
+  const deleteUser = async (id) => {
+    try {
+      const URL = "http://localhost:3000/user/" + id;
+      await fetch(URL, {
+        method: "DELETE",
+      });
+      window.location.reload();
+      console.log("Delete user succed");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="container">
       <Header
@@ -52,6 +82,20 @@ function App() {
         showAdd={showAddUser}
       ></Header>
       {showAddUser && <AddUser onAdd={addUser}></AddUser>}
+
+      <Body
+        users={users}
+        onDelete={deleteUser}
+        updateID={updateID}
+        setUpdateID={setUpdateID}
+      ></Body>
+      {updateID && (
+        <UpdateUser
+          users={users}
+          onUpdate={updateUser}
+          updateID={updateID}
+        ></UpdateUser>
+      )}
     </div>
   );
 }
