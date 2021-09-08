@@ -55,8 +55,6 @@ function App() {
         body: JSON.stringify(userToSend),
       });
       console.log("User updated");
-      const resaultJson = await resault.json();
-      setUsers({ id: resaultJson.id });
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -69,8 +67,8 @@ function App() {
       await fetch(URL, {
         method: "DELETE",
       });
-      window.location.reload();
       console.log("Delete user succed");
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
