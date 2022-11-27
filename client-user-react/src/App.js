@@ -19,8 +19,9 @@ function App() {
   }, []);
   const fetchUsers = async () => {
     try {
-      const result = await fetch("http://localhost:3000/user");
-      return await result.json();
+      console.log("starting");
+      // const result = await fetch("http://localhost:3000/user");
+      // return await result.json();
     } catch (error) {
       console.log(error);
     }
@@ -49,12 +50,12 @@ function App() {
     try {
       const URL = "http://localhost:3000/user/" + user.id;
       var userToSend = { name: user.name, email: user.email };
-      const resault = await fetch(URL, {
+      var result = await fetch(URL, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userToSend),
       });
-      console.log("User updated");
+      console.log(result);
       window.location.reload();
     } catch (error) {
       console.log(error);

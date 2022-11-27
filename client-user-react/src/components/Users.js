@@ -2,7 +2,7 @@ import User from "./User";
 const Users = ({ users, onDelete, updateID, setUpdateID }) => {
   return (
     <>
-      {users.map((user) => (
+      {/* {users.map((user) => (
         <User
           key={user.id}
           user={user}
@@ -10,7 +10,7 @@ const Users = ({ users, onDelete, updateID, setUpdateID }) => {
           updateID={updateID}
           setUpdateID={setUpdateID}
         ></User>
-      ))}
+      ))} */}
     </>
   );
 };

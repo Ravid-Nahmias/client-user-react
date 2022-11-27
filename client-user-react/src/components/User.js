@@ -3,6 +3,11 @@ import Button from "./Button";
 const User = ({ user, onDelete, setUpdateID }) => {
   return (
     <tr className="user">
+      {/* <td>{user.private_name}</td>
+      <td>{user.last_name}</td>
+      <td>{user.id}</td>
+      <td>{user.birth_date}</td>
+      <td>{user.gender}</td> */}
       <td>{user.id}</td>
       <td>{user.name}</td>
       <td>{user.email}</td>
